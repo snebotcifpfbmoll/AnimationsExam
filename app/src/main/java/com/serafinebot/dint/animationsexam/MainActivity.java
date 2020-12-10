@@ -1,17 +1,12 @@
 package com.serafinebot.dint.animationsexam;
 
-import android.animation.Animator;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -32,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         sunImage.setImageDrawable(sun);
 
         sky.setOnClickListener(v -> {
+            sunImage.setY((float) (sky.getHeight() / 2.0 - sunImage.getHeight() / 2.0));
             @SuppressLint("ObjectAnimatorBinding")
             ObjectAnimator animator = ObjectAnimator.ofFloat(sunImage, "translationY", sky.getHeight());
             animator.setTarget(sunImage);
