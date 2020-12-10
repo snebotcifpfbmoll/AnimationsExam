@@ -4,11 +4,13 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +22,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
+        ImageView moonView = toolbar.findViewById(R.id.moonButton);
+        ImageView faceView = toolbar.findViewById(R.id.faceButton);
+
+        moonView.setOnClickListener(v -> {
+            // smth
+        });
+
+        faceView.setOnClickListener(v -> {
+            Intent intent = new Intent(this, hello_world.class);
+            startActivity(intent);
+        });
+
+        ImageView sea = findViewById(R.id.sea);
         LinearLayout sky = findViewById(R.id.sky);
         ImageView sunImage = findViewById(R.id.sunImage);
         sunImage.setScaleType(ImageView.ScaleType.MATRIX);
@@ -29,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         sky.setOnClickListener(v -> {
             sunImage.setY((float) (sky.getHeight() / 2.0 - sunImage.getHeight() / 2.0));
             @SuppressLint("ObjectAnimatorBinding")
-            ObjectAnimator animator = ObjectAnimator.ofFloat(sunImage, "translationY", sky.getHeight());
+            ObjectAnimator animator = ObjectAnimator.ofFloat(sunImage, "translationY", sea.getY())  ;
             animator.setTarget(sunImage);
             animator.setDuration(3000);
             animator.start();
