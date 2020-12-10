@@ -26,17 +26,23 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/moonButton"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/circle" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/faceButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/circle" />
+            <ImageView
+                android:id="@+id/moonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/half_moon_foreground" />
+
+            <ImageView
+                android:id="@+id/faceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/face_foreground" />
+        </LinearLayout>
     </Toolbar>
 
     <LinearLayout

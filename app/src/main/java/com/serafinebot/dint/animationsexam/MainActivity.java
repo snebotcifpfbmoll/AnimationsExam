@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         ImageView faceView = toolbar.findViewById(R.id.faceButton);
 
         moonView.setOnClickListener(v -> {
-            // smth
         });
 
         faceView.setOnClickListener(v -> {
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         sky.setOnClickListener(v -> {
             sunImage.setY((float) (sky.getHeight() / 2.0 - sunImage.getHeight() / 2.0));
             @SuppressLint("ObjectAnimatorBinding")
-            ObjectAnimator animator = ObjectAnimator.ofFloat(sunImage, "translationY", sea.getY())  ;
+            ObjectAnimator animator = ObjectAnimator.ofFloat(sunImage, "translationY", sea.getY());
             animator.setTarget(sunImage);
             animator.setDuration(3000);
             animator.start();
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("Range") int endColor = Color.parseColor("#df8530");
             @SuppressLint("Range") int nightColor = Color.parseColor("#08192c");
             ValueAnimator backgroundAnimator = ValueAnimator.ofObject(new ArgbEvaluator(), startColor, midColor, endColor, nightColor);
-            backgroundAnimator.setDuration(4500);
+            backgroundAnimator.setDuration(3000);
             backgroundAnimator.addUpdateListener(animation -> sky.setBackgroundColor((Integer) backgroundAnimator.getAnimatedValue()));
             backgroundAnimator.start();
         });
